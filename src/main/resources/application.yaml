@@ -1,0 +1,54 @@
+server:
+  port: 8005
+  servlet:
+    context-path: /yfj
+spring:
+  application:
+    name: Mockstar
+  main:
+    allow-bean-definition-overriding: true
+  cloud:
+    openfeign:
+      client:
+        config:
+          default:
+            connectTimeout: 10000
+            readTimeout: 2000
+  jpa:
+    show-sql: true
+    hibernate:
+      ddl-auto: none
+  security:
+    user:
+      name: rajesh
+      password: Ganeshh12#
+  datasource:
+    username: root
+    url: jdbc:mysql://localhost:3306/yfj?serverTimezone=UTC&allowPublicKeyRetrieval=true&useSSL=false
+    password: Ganeshh12#
+security:
+  jwt:
+    expiration-time: 3600000
+    secret-key: 104ba812668b68ea8079e9ebac86cf737428690a307066475c88833e9ab76dad
+logging:
+  level:
+    com:
+      dbs:
+        yfj:
+          client: INFO
+client:
+  list:
+    sailor:
+      name: Sailor
+      context: sailor
+      expiresInSec: 604800
+      header:
+        - "X-Request-Hash"
+    iwf:
+      name: Iwf
+      context: iwf
+      expiresInSec: 604800
+      header:
+        - "customHeaderGET"
+cache:
+  clean-on-start: true
